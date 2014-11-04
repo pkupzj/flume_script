@@ -1,0 +1,22 @@
+#!/bin/bash
+
+usage="Usage: flume-clean.sh  HOST_IP "
+
+if [ $# != 1 ]; then
+     echo $usage
+     exit 1
+fi
+
+bin=`dirname "$0"`
+bin=`cd "$bin"; pwd`
+. "$bin"/flume-env.sh
+
+HOST_IP=$1
+
+CMD="du -sh /data/log/flume/log/agent"
+echo "$HOST_IP $CMD"
+#CMD="ls /tmp"
+#echo "ssh -o StrictHostKeyChecking=no $USER_NAME@$HOST_IP ssh -o StrictHostKeyChecking=no  work@$HOST_IP  $CMD"
+#ssh -n -o StrictHostKeyChecking=no $USER_NAME@$HOST_IP ssh -n -o StrictHostKeyChecking=no  work@$HOST_IP  $CMD  
+
+

@@ -1,0 +1,8 @@
+10.8.64.95 node95A /data/server/flume-collectorA
+10.8.64.95 node95C /data/server/flume-collectorC
+10.8.64.95 node95D /data/server/flume-collectorD
+10.8.64.96 node96A /data/server/flume-collectorA
+10.8.64.96 node96B /data/server/flume-collectorB
+10.8.64.96 node96C /data/server/flume-collectorC
+10.8.64.96 node96D /data/server/flume-collectorD
+10.8.64.96 node96Monitor /data/server/flume-collector-monitor

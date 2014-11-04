@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+
+usage="Usage: flume-scp.sh HOST_IP USER_NAME FLUME_HOME RELATIVE_DIR LOCAL_FILE_DIR FILE_NAME"
+
+if [ $# != 6 ]; then
+     echo $usage
+     exit 1
+fi
+
+
+HOST_IP=$1
+USER_NAME=$2
+FLUME_HOME=$3
+RELATIVE_DIR=$4
+LOCAL_FILE_DIR=$5
+FILE_NAME=$6
+
+bin=`dirname "$0"`
+bin=`cd "$bin"; pwd`
+echo "scp $LOCAL_FILE_DIR/$FLIE_NAME to $HOST_IP@:$FLUME_HOME"
+scp -o StrictHostKeyChecking=no $LOCAL_FILE_DIR/$FILE_NAME $USER_NAME@$HOST_IP:/tmp/
+ssh -o StrictHostKeyChecking=no  $USER_NAME@$HOST_IP "scp -o StrictHostKeyChecking=no /tmp/$FILE_NAME work@$HOST_IP:$FLUME_HOME/$RELATIVE_DIR" &
+

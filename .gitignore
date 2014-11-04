@@ -1,0 +1,16 @@
+*.class
+*.jar
+bin/
+gen/
+.settings/
+target/
+.project
+logs/
+.svn/
+.settings/
+.classpath
+.DS_Store
+dist/
+*~
+*.iml
+

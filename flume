@@ -1,0 +1,24 @@
+#!/bin/bash
+
+usage="Usage: flumeManager.sh  HOST_IP NODE_NAME FLUME_HOME ACTION"
+
+if [ $# != 4 ]; then
+     echo $usage
+     exit 1
+fi
+
+bin=`dirname "$0"`
+bin=`cd "$bin"; pwd`
+. "$bin"/flume-env.sh
+
+HOST_IP=$1
+NODE_NAME=$2
+FLUME_HOME=$3
+ACTION=$4
+
+CMD="sh $FLUME_HOME/bin/flume-daemon.sh $ACTION node -n $NODE_NAME"
+#CMD="ls /tmp"
+#echo "ssh -o StrictHostKeyChecking=no $USER_NAME@$HOST_IP ssh -o StrictHostKeyChecking=no  work@$HOST_IP  $CMD"
+ssh -n -o StrictHostKeyChecking=no $USER_NAME@$HOST_IP ssh -n -o StrictHostKeyChecking=no  work@$HOST_IP  $CMD  
+
+
